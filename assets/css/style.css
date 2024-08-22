@@ -2,6 +2,7 @@
 
 .bg {
   backdrop-filter: blur(10px) brightness(0.7) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) brightness(0.7) saturate(120%);
   background-image: url(/assets/img/bg1.jpg);
   background-position: center;
   background-attachment: fixed;
@@ -101,6 +102,17 @@
   color: inherit;
 }
 
+.ctabutton {
+  animation: infinite 2s bigSmall ease-in-out;
+  -webkit-animation: infinite 2s bigSmall ease-in-out;
+  background-color: #c48123;
+}
+
+.ctabutton:hover {
+  animation-play-state: paused;
+  -webkit-animation-play-state: paused;
+}
+
 .bottom-text {
   text-decoration: none;
   text-align: center;
@@ -121,4 +133,58 @@
 
 .space {
   padding-top: 40px
+}
+
+@keyframes bigSmall {
+  0% {
+    transform: scale(1)
+  }
+  50% {
+    transform: scale(1.03)
+  }
+  100% {
+    transform: scale(1)
+  }
+}
+
+@-webkit-keyframes bigSmall {
+  0% {
+    -webkit-transform: scale(1)
+  }
+  50% {
+    -webkit-transform: scale(1.03)
+  }
+  100% {
+    -webkit-transform: scale(1)
+  }
+}
+
+
+body {
+  --sb-track-color: #232e33;
+  --sb-thumb-color: #38698d;
+  --sb-size: 11px;
+  background-color: var(--sb-track-color);
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 5px;
+  border: 2px solid #232e33;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
 }

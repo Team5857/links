@@ -41,15 +41,23 @@
     <!-- Profile about-->
     <div class="profile-about">FIRST Robotics Competition Team #5857</div>
 
+    <!-- Special Links-->
+    <a href="https://wvr5857.org/analytics?ref=regClubFair" target="_blank" class="links hover ctabutton">
+        <i class="fa-solid fa-robot-astromech links-in"></i>
+        Interest Form</a>
+
     <!-- Links-->
-    <a href="https://wvr5857.org/" target="_blank" class="links hover">
+    <div id="links"></div>
+
+    <!-- Links-->
+    <!-- <a href="https://wvr5857.org/" target="_blank" class="links hover">
         <i class="fas fa-link links-in"></i>
         Website</a>
 
-    <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNl299uMgH7b6vMSyoDxH2o7sIKrq2kFDqO5wPiuXSc0XHxA/viewform"
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNl299uMgH7b6vMSyoDxH2o7sIKrq2kFDqO5wPiuXSc0XHxA/viewform"
         target="_blank" class="links hover">
         <i class="fa-solid fa-square-list links-in"></i>
-        Interest Form</a> -->
+        Interest Form</a>
 
     <a href="https://www.instagram.com/walnutvalleyrobotics5857/" target="_blank" class="links hover">
         <i class="fab fa-instagram links-in"></i>
@@ -78,11 +86,35 @@
 
     <a href="https://x.com/wvr5857?lang=en" target="_blank" class="links hover">
         <i class="fab fa-x-twitter links-in"></i>
-        X (formally Twitter)</a>
+        X (formally Twitter)</a> -->
     <!--bottom text-->
     <div class="bottom-text">
         Made with <i class="fa-solid fa-heart" style="color:#FC6C6B"></i> by Pudding &#128039;
     </div>
+    <script>
+        // Beginner friendly button maker
+        const links = {
+            // "Link Name": ["URL", "Font Awesome Icon"],
+            "Website": ["https://wvr5857.org/", "fas fa-link"],
+            "Instagram": ["https://www.instagram.com/walnutvalleyrobotics5857/", "fab fa-instagram"],
+            "Email": ["mailto:walnutvalleyrobotics@gmail.com", "fa-solid fa-envelope"],
+            "The Blue Alliance": ["https://www.thebluealliance.com/team/5857/", "fas fa-shield-quartered"],
+            "GitHub": ["https://github.com/Team5857", "fab fa-github"],
+            "YouTube": ["https://www.youtube.com/@walnutvalleyrobotics", "fab fa-youtube"],
+            "Facebook": ["https://www.facebook.com/WalnutValleyRobotics/", "fab fa-facebook"],
+            "X (formally Twitter)": ["https://x.com/wvr5857?lang=en", "fab fa-x-twitter"]
+        }
+        const linksDiv = document.getElementById("links");
+
+        for (const [key, value] of Object.entries(links)) {
+            const link = document.createElement("a");
+            link.classList.add("links", "hover");
+            link.target = "_blank";
+            link.href = value[0]
+            link.innerHTML = `<i class="${value[1]} links-in"></i>${key}`;
+            linksDiv.appendChild(link);
+        }
+    </script>
 </body>
 
 </html>
